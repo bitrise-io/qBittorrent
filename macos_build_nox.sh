@@ -301,6 +301,7 @@ ${cmake} --build ${_qbt_tmp_dir} -j$(sysctl -n hw.ncpu)
 
 # build result .dmg image containing qBittorrent
 pushd ${_qbt_tmp_dir} > /dev/null
+tree .
 mv qbittorrent.app qBittorrent.app
 codesign --deep --force --verify --verbose --sign "-" qBittorrent.app
 cp qBittorrent.app/Contents/MacOS/qbittorrent ${prod_dir}/qbittorrent

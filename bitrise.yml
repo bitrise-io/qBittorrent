@@ -118,5 +118,5 @@ workflows:
             /tmp/${MACOS_ARCH}/SHA256SUM_${MACOS_ARCH}
 meta:
   bitrise.io:
-    stack: osx-xcode-13.1.x-non-metal
+    stack: osx-xcode-13.2.x-non-metal
     machine_type_id: g2.12core
