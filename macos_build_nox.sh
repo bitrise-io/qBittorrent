@@ -47,7 +47,7 @@ min_macos_ver=10.15                         # minimum version of the target plat
 # =====================================================================================================================
 
 work_dir="."                                 # working directory, all files will be placed here
-prod_dir="/tmp/${MACOS_ARCH}"                # output directory for result qBittorrent .dmg image
+prod_dir="/tmp/${target_arch}"                # output directory for result qBittorrent .dmg image
 
 universal_arch_tag="universal"              # value used as arch to build a universal binary
 
@@ -302,8 +302,8 @@ ${cmake} --build ${_qbt_tmp_dir} -j$(sysctl -n hw.ncpu)
 # build result .dmg image containing qBittorrent
 pushd ${_qbt_tmp_dir} > /dev/null
 codesign --deep --force --verify --verbose --sign "-" qbittorrent-nox.app
-cp qbittorrent-nox.app/Contents/MacOS/qbittorrent-nox ${prod_dir}/qbittorrent
 popd > /dev/null
+cp /Users/vagrant/git/build-${target_arch}/qBittorrent-master/qbittorrent-nox.app/Contents/MacOS/qbittorrent-nox ${prod_dir}/qbittorrent
 
 # only automatically created directory will be removed
 [[ $_remove_work_dir -eq 0 ]] || rm -rf ${work_dir}
