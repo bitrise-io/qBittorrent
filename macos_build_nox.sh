@@ -105,6 +105,9 @@ else
     _remove_work_dir=0
 fi
 
+# set again, perhaps target_arch has changed
+prod_dir="/tmp/${target_arch}" 
+
 # output directory setup
 [[ -d "${prod_dir}" ]] || mkdir -p "${prod_dir}"
 
