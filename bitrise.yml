@@ -4,16 +4,16 @@ default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
 project_type: other
 app:
   envs:
-  - DEPLOY_USER: "$DEPLOY_USER"
+  - DEPLOY_USER: $DEPLOY_USER
     opts:
       description: Username of bot to deploy changes to Github GitOps repository.
       required: true
-  - DEPLOY_TOKEN: "$DEPLOY_TOKEN"
+  - DEPLOY_TOKEN: $DEPLOY_TOKEN
     opts:
       description: Personal access token for Github.
       required: true
 trigger_map:
-- push_branch: 'master'
+- push_branch: master
   workflow: build-and-deploy-arm
 - pull_request_target_branch: master
   workflow: build-arm
@@ -87,23 +87,29 @@ workflows:
     - script@1.1.6:
         title: ZIP binary and calculate hashsum
         inputs:
-        - content: |-
+        - content: >-
             #!/bin/bash
+
             set -euo pipefail
+
             cd /tmp/${MACOS_ARCH}/
+
             zip qbittorrent-nox-${MACOS_ARCH}.zip qbittorrent
-            sha256sum qbittorrent-nox-${MACOS_ARCH}.zip > SHA256SUM_${MACOS_ARCH}
+
+            sha256sum qbittorrent-nox-${MACOS_ARCH}.zip >
+            SHA256SUM_${MACOS_ARCH}
+
 
             envman add --key SHA256SUM --value "$(cat SHA256SUM_${MACOS_ARCH})"
     - github-release@0.11:
         inputs:
-        - api_token: "$GITHUB_TOKEN"
-        - username: "$GITHUB_USERNAME"
-        - repository_url: https://github.com/bitrise-io/qBittorrent.git
+        - api_token: $GITHUB_TOKEN
+        - username: $GITHUB_USERNAME
+        - repository_url: 'https://github.com/bitrise-io/qBittorrent.git'
         - commit: master
         - draft: 'no'
-        - name: "$RELEASE_TAG"
-        - tag: "$RELEASE_TAG"
+        - name: $RELEASE_TAG
+        - tag: $RELEASE_TAG
         - body: |
             ### SHA256SUM
             $SHA256SUM
@@ -112,5 +118,5 @@ workflows:
             /tmp/${MACOS_ARCH}/SHA256SUM_${MACOS_ARCH}
 meta:
   bitrise.io:
-    stack: linux-docker-android-20.04
-    machine_type_id: elite-xl
+    stack: osx-xcode-13.1.x-non-metal
+    machine_type_id: g2.12core
