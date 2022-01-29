@@ -15,12 +15,8 @@ app:
 trigger_map:
 - push_branch: 'master'
   workflow: build-and-deploy-arm
-- push_branch: 'master'
-  workflow: build-and-deploy-x64
 - pull_request_target_branch: master
   workflow: build-arm
-- pull_request_target_branch: master
-  workflow: build-x64
 workflows:
   build-and-deploy-arm:
     before_run:
