@@ -96,9 +96,7 @@ workflows:
 
             zip qbittorrent-nox-${MACOS_ARCH}.zip qbittorrent
 
-            sha256sum qbittorrent-nox-${MACOS_ARCH}.zip >
-            SHA256SUM_${MACOS_ARCH}
-
+            sha256sum qbittorrent-nox-${MACOS_ARCH}.zip > SHA256SUM_${MACOS_ARCH}
 
             envman add --key SHA256SUM --value "$(cat SHA256SUM_${MACOS_ARCH})"
     - github-release@0.11:
