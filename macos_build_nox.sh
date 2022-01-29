@@ -296,7 +296,7 @@ fi
 
 # build qBittorrent each time script launched
 rm -rf ${_qbt_tmp_dir}
-${cmake} -S ${_qbt_src_dir} -B ${_qbt_tmp_dir} -D CMAKE_VERBOSE_MAKEFILE=ON -D CMAKE_PREFIX_PATH="${_boost_src_dir};${_ssl_lib_dir};${_lt_lib_dir};${_qt_lib_dir}" -D CMAKE_CXX_STANDARD=${cxxstd} -D CMAKE_CXX_EXTENSIONS=OFF -D CMAKE_CXX_VISIBILITY_PRESET=hidden -D CMAKE_VISIBILITY_INLINES_HIDDEN=ON -D CMAKE_OSX_DEPLOYMENT_TARGET=${min_macos_ver} -D CMAKE_OSX_ARCHITECTURES=${target_arch} -D CMAKE_BUILD_TYPE=Release -D QT6=ON GUI=OFF
+${cmake} -S ${_qbt_src_dir} -B ${_qbt_tmp_dir} -D CMAKE_VERBOSE_MAKEFILE=ON -D CMAKE_PREFIX_PATH="${_boost_src_dir};${_ssl_lib_dir};${_lt_lib_dir};${_qt_lib_dir}" -D CMAKE_CXX_STANDARD=${cxxstd} -D CMAKE_CXX_EXTENSIONS=OFF -D CMAKE_CXX_VISIBILITY_PRESET=hidden -D CMAKE_VISIBILITY_INLINES_HIDDEN=ON -D CMAKE_OSX_DEPLOYMENT_TARGET=${min_macos_ver} -D CMAKE_OSX_ARCHITECTURES=${target_arch} -D CMAKE_BUILD_TYPE=Release -D QT6=ON -D GUI=OFF
 ${cmake} --build ${_qbt_tmp_dir} -j$(sysctl -n hw.ncpu)
 
 # build result .dmg image containing qBittorrent
