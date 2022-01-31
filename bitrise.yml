@@ -83,7 +83,7 @@ workflows:
         - content: |-
             #!/bin/bash
             GIT_COMMIT=$(git rev-parse --short HEAD)
-            envman add --key RELEASE_TAG --value build-${GIT_COMMIT}
+            envman add --key RELEASE_TAG --value build-${GIT_COMMIT}-${MACOS_ARCH}
     - script@1.1.6:
         title: ZIP binary and calculate hashsum
         inputs:
