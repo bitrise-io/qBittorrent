@@ -94,7 +94,7 @@ workflows:
 
             cd /tmp/${MACOS_ARCH}/
 
-            zip qbittorrent-nox-${MACOS_ARCH}.zip qbittorrent
+            zip qbittorrent-nox-${MACOS_ARCH}.zip qbittorrent-nox
 
             sha256sum qbittorrent-nox-${MACOS_ARCH}.zip > SHA256SUM_${MACOS_ARCH}
 
