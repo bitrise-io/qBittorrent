@@ -306,7 +306,7 @@ ${cmake} --build ${_qbt_tmp_dir} -j$(sysctl -n hw.ncpu)
 # pushd ${_qbt_tmp_dir} > /dev/null
 # codesign --deep --force --verify --verbose --sign "-" qbittorrent-nox.app
 # popd > /dev/null
-cp /Users/vagrant/git/build-${target_arch}/qBittorrent-master/qbittorrent-nox.app/Contents/MacOS/qbittorrent-nox ${prod_dir}/qbittorrent-nox
+cp /Users/vagrant/git/build-${target_arch}/qBittorrent-${qbittorrent_ver}/qbittorrent-nox.app/Contents/MacOS/qbittorrent-nox ${prod_dir}/qbittorrent-nox
 
 # only automatically created directory will be removed
 [[ $_remove_work_dir -eq 0 ]] || rm -rf ${work_dir}
