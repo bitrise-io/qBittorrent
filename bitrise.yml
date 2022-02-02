@@ -14,7 +14,7 @@ app:
       required: true
   - QT_VERSION: 5.15.2
   - LIBTORRENT_VERSION: 2.0.4
-  - QUBITTORRENT_VERSION: 4.3.9
+  - QUBITTORRENT_VERSION: "release-4.3.9"
 trigger_map:
 - push_branch: master
   workflow: build-and-deploy-arm
