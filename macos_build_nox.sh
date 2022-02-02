@@ -132,7 +132,7 @@ _qbt_src_dir_name="qBittorrent-${qbittorrent_ver}"
 _qbt_src_dir="${_src_dir}/${_qbt_src_dir_name}"
 _qbt_tmp_dir="${_tmp_dir}/${_qbt_src_dir_name}"
 # anything known to git (i.e. branch names or tags) can be used as 'version'
-[[ -d ${_qbt_src_dir} ]] || curl -L https://github.com/qbittorrent/qBittorrent/archive/{$qbittorrent_ver}.tar.gz | tar xz
+[[ -d ${_qbt_src_dir} ]] || curl -L https://github.com/qbittorrent/qBittorrent/archive/${qbittorrent_ver}.tar.gz | tar xz
 
 _ssl_src_dir_name="openssl-${openssl_ver}"
 _ssl_src_dir="${_src_dir}/${_ssl_src_dir_name}"
