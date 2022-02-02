@@ -66,7 +66,7 @@ workflows:
             set -euo pipefail
             envman add --key MACOS_ARCH --value "arm64"
 
-            ./macos_build_nox.sh --target-arch=arm64 --qbittorrent_ver=${QUBITTORRENT_VERSION} --libtorrent_ver=${LIBTORRENT_VERSION} --qt_ver=${QT_VERSION}
+            ./macos_build_nox.sh --target-arch=arm64 --qbittorrent=${QUBITTORRENT_VERSION} --libtorrentr=${LIBTORRENT_VERSION} --qt=${QT_VERSION}
   _build_x64:
     steps:
     - script@1.1.6:
@@ -77,7 +77,7 @@ workflows:
             set -euo pipefail
             envman add --key MACOS_ARCH --value "x86_64"
 
-            ./macos_build_nox.sh --target-arch=x86_64 --qbittorrent_ver=${QUBITTORRENT_VERSION} --libtorrent_ver=${LIBTORRENT_VERSION} --qt_ver=${QT_VERSION}
+            ./macos_build_nox.sh --target-arch=x86_64 --qbittorrent=${QUBITTORRENT_VERSION} --libtorrentr=${LIBTORRENT_VERSION} --qt=${QT_VERSION}
   _publish:
     steps:
     - script@1.1.6:
